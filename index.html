@@ -9,8 +9,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap">
 <style>
 :root {
-  --paper: #faf8f2;
-  --surface: #fffefa;
+  --paper: #f5f4ef;
+  --surface: #fcfbf8;
   --ink: #282721;
   --muted: #77766d;
   --sage: #7d9a87;
@@ -35,8 +35,8 @@ body::before {
 body {
   min-height: 100dvh;
   background:
-    radial-gradient(circle at 12% 18%, rgba(191, 225, 203, .56), transparent 28rem),
-    radial-gradient(circle at 90% 82%, rgba(246, 221, 175, .48), transparent 30rem),
+    radial-gradient(circle at 12% 18%, rgba(215, 225, 214, .42), transparent 28rem),
+    radial-gradient(circle at 90% 82%, rgba(232, 225, 210, .32), transparent 30rem),
     var(--paper);
   color: var(--ink);
   font-family: var(--font-body);
@@ -49,15 +49,15 @@ body {
   padding: 8px;
   border: 1px solid rgba(36, 34, 29, .1);
   border-radius: 34px;
-  background: rgba(255,255,255,.28);
-  box-shadow: 0 28px 80px rgba(67, 59, 45, .11);
+  background: rgba(255,255,255,.5);
+  box-shadow: 0 28px 80px rgba(67, 59, 45, .08);
   animation: rise-in 900ms cubic-bezier(.32,.72,0,1) both;
 }
 .card-core {
   min-height: 600px;
   padding: clamp(28px, 5vw, 72px);
   border-radius: 27px;
-  background: rgba(255,254,250,.96);
+  background: rgba(252,251,248,.98);
   box-shadow: inset 0 1px 1px rgba(255,255,255,.9);
   display: grid;
   grid-template-columns: .9fr 1.1fr;
@@ -67,17 +67,17 @@ body {
 .id { display: flex; flex-direction: column; align-items: center; gap: 4px; }
 .avatar {
   position: relative;
-  width: 166px; height: 166px;
-  border-radius: 50%;
+  width: 188px; height: 232px;
+  border-radius: 28px;
   overflow: hidden;
-  background: #e6f0e5;
-  margin-bottom: 22px;
+  background: #fdfcf9;
+  margin-bottom: 26px;
   display: grid; place-items: center;
   font: 600 42px var(--font-display);
   color: var(--sage-dark);
-  box-shadow: 0 0 0 10px rgba(125,154,135,.13);
+  box-shadow: 0 0 0 8px rgba(125,154,135,.1), inset 0 1px 1px rgba(255,255,255,.9);
 }
-.avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 18%; display: block; }
 h1 { max-width: 340px; font: 600 clamp(38px, 5vw, 64px)/.98 var(--font-display); letter-spacing: -.045em; margin: 0; text-align: center; }
 .role { margin: 16px 0 0; color: var(--muted); font-size: 14px; letter-spacing: .16em; text-transform: uppercase; }
 .eyebrow {
@@ -135,7 +135,7 @@ h1 { max-width: 340px; font: 600 clamp(38px, 5vw, 64px)/.98 var(--font-display);
     border-radius: 20px;
     align-content: center;
   }
-  .avatar { width: 124px; height: 124px; font-size: 32px; margin-bottom: 18px; }
+  .avatar { width: 142px; height: 176px; font-size: 32px; margin-bottom: 18px; }
   h1 { max-width: 280px; font-size: clamp(42px, 12vw, 54px); }
   .role { margin-top: 13px; font-size: 11px; letter-spacing: .14em; }
   .eyebrow { margin-bottom: 14px; }
@@ -147,7 +147,7 @@ h1 { max-width: 340px; font: 600 clamp(38px, 5vw, 64px)/.98 var(--font-display);
 }
 @media (max-width: 380px) {
   .card-core { gap: 42px; padding-inline: 14px; }
-  .avatar { width: 112px; height: 112px; }
+  .avatar { width: 126px; height: 156px; }
   .btn { min-height: 56px; }
 }
 @media (prefers-reduced-motion: reduce) {
