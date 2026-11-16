@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
 :root {
   --paper: #f5f4ef;
@@ -101,17 +102,17 @@ h1 { max-width: 340px; font: 600 clamp(38px, 5vw, 64px)/.98 var(--font-display);
 .btn.primary { background: var(--sage-dark); color: #fff; border-color: var(--sage-dark); }
 .btn:hover { transform: translateY(-3px); border-color: var(--sage); background: rgba(125,154,135,.12);  }
 .btn.primary:hover { background: var(--sage); border-color: var(--sage); }
-.btn::after {
-  content: "↗";
+.btn .action-arrow {
   width: 38px; height: 38px; border-radius: 50%;
   display: grid; place-items: center;
+  margin-left: auto;
   background: rgba(36,34,29,.07);
-  font-size: 17px;
+  font-size: 14px;
   transition: transform 650ms cubic-bezier(.32,.72,0,1), background-color 650ms cubic-bezier(.32,.72,0,1);
 }
-.btn.primary::after { background: rgba(255,255,255,.14); }
-.btn:hover::after { transform: translate(3px,-2px) scale(1.06); background: rgba(125,154,135,.2);  }
-.btn.primary:hover::after { background: rgba(255,255,255,.22); }
+.btn.primary .action-arrow { background: rgba(255,255,255,.14); }
+.btn:hover .action-arrow { transform: translate(3px,-2px) scale(1.06); background: rgba(125,154,135,.2);  }
+.btn.primary:hover .action-arrow { background: rgba(255,255,255,.22); }
 .btn:focus-visible, .soc:focus-visible { outline: 2px solid var(--sage); outline-offset: 5px; }
 .socials { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 6px; margin-top: 30px; }
 .soc {
@@ -140,7 +141,7 @@ h1 { max-width: 340px; font: 600 clamp(38px, 5vw, 64px)/.98 var(--font-display);
   .role { margin-top: 13px; font-size: 11px; letter-spacing: .14em; }
   .eyebrow { margin-bottom: 14px; }
   .btn { min-height: 60px; padding-left: 18px; font-size: 14px; }
-  .btn::after { width: 36px; height: 36px; }
+  .btn .action-arrow { width: 36px; height: 36px; }
   .socials { margin-top: 24px; gap: 4px; }
   .links-panel { width: 100%; }
   .socials { justify-content: center; }
@@ -231,6 +232,10 @@ ACTIONS.forEach(function (a) {
   el.rel = "noopener noreferrer";
   el.appendChild(strokeIcon(a.icon));
   el.appendChild(document.createTextNode(a.label));
+  const arrow = document.createElement("i");
+  arrow.className = "fa-solid fa-arrow-up-right-from-square action-arrow";
+  arrow.setAttribute("aria-hidden", "true");
+  el.appendChild(arrow);
   actions.appendChild(el);
 });
 const socials = document.getElementById("socials");
